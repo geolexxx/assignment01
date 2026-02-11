@@ -10,6 +10,14 @@
 */
 
 -- Enter your SQL query here
+SELECT
+    ROUND(
+        100.0 * (b.num_trips - a.num_trips) / a.num_trips,
+        2
+    ) AS perc_change
+FROM
+    (SELECT COUNT(*) AS num_trips FROM indego.trips_2021_q3) a,
+    (SELECT COUNT(*) AS num_trips FROM indego.trips_2022_q3) b;
 
 
 
